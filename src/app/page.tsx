@@ -1,38 +1,78 @@
-"use client"
-
-import { useRouter } from "next/navigation"
+import Link from "next/link";
 
 export default function Home() {
+  return (
+    <main className="min-h-screen bg-gradient-to-br from-indigo-50 to-gray-100">
 
-const router = useRouter()
+      {/* Navbar */}
+      <nav className="flex justify-between items-center px-12 py-5 bg-white shadow-sm">
 
-return (
+        <h1 className="text-2xl font-bold text-indigo-600">
+          Slooze
+        </h1>
 
-<div className="flex min-h-screen items-center justify-center bg-gray-100">
+        <Link href="/login">
+          <button className="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition">
+            Login
+          </button>
+        </Link>
 
-<div className="bg-white p-10 rounded-lg shadow-lg text-center">
+      </nav>
 
-<h1 className="text-3xl font-bold mb-4">
-Slooze Commodities Management
-</h1>
 
-<p className="mb-6 text-gray-600">
-Role Based Product Management System
-</p>
+      {/* Hero Section */}
+      <section className="flex flex-col items-center text-center mt-32 px-6">
 
-<button
-onClick={()=>router.push("/login")}
-className="bg-blue-500 text-white px-6 py-3 rounded"
->
+        <h1 className="text-5xl font-bold text-gray-800 mb-6">
+          Slooze Commodities Management
+        </h1>
 
-Go To Login
+        <p className="text-gray-500 max-w-xl mb-8">
+          Manage your commodities, track inventory and control product
+          access with a modern role-based management system.
+        </p>
 
-</button>
+        <Link href="/login">
+          <button className="bg-indigo-600 text-white px-8 py-3 rounded-xl text-lg hover:bg-indigo-700 shadow-lg transition">
+            Get Started
+          </button>
+        </Link>
 
-</div>
+      </section>
 
-</div>
 
-)
+      {/* Features */}
+      <section className="grid md:grid-cols-3 gap-8 px-16 mt-24">
 
+        <div className="bg-white p-8 rounded-xl shadow hover:shadow-xl transition">
+          <h3 className="text-xl font-semibold mb-3">
+            Inventory Tracking
+          </h3>
+          <p className="text-gray-500">
+            Monitor all commodities and product stock in real time.
+          </p>
+        </div>
+
+        <div className="bg-white p-8 rounded-xl shadow hover:shadow-xl transition">
+          <h3 className="text-xl font-semibold mb-3">
+            Role Based Access
+          </h3>
+          <p className="text-gray-500">
+            Secure admin and user access with permission control.
+          </p>
+        </div>
+
+        <div className="bg-white p-8 rounded-xl shadow hover:shadow-xl transition">
+          <h3 className="text-xl font-semibold mb-3">
+            Analytics Dashboard
+          </h3>
+          <p className="text-gray-500">
+            Track product performance and inventory insights.
+          </p>
+        </div>
+
+      </section>
+
+    </main>
+  );
 }
